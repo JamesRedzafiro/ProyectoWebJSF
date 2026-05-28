@@ -301,17 +301,8 @@ Ahora se utilizan **JSF Beans**:
 
 ---
 
-##  Contacto y Soporte
 
-Para más información, revisa:
-- [Documentación JSF](https://eclipse-ee4j.github.io/faces)
-- [Jakarta EE 10](https://jakarta.ee/)
-- [Tomcat 10 Docs](https://tomcat.apache.org/tomcat-10.0-doc/)
-
----
-
-**Última actualización**: 26 de mayo de 2026  
-**Estado**:  Listo para producción
+**Última actualización**: 27 de mayo de 2026  
 
 ### DBConfig.java
 Ubicación: `src/main/java/config/DBConfig.java`
