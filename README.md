@@ -1,128 +1,133 @@
 # Spa Relax - Aplicación Web JSF
 
-## ℹ️ Estado Actual: MIGRACIÓN A JSF COMPLETADA
+## Estado Actual: Desarrollo Completado
 
-La aplicación ha sido **migrada exitosamente de JSP a JavaServer Faces (JSF)**. Toda la arquitectura backend, componentes JSF y configuración están listos para usar.
+Aplicación web para gestión de citas en centros de spa. Implementada con JavaServer Faces (JSF), arquitectura MVC con capas de servicio, DAO y controladores JSF.
 
-**Tecnologías utilizadas:**
-- Java 11 + JSF 4.0 (Jakarta Faces)
-- PostgreSQL 12+
-- Apache Tomcat 10+
+## Tecnologías Utilizadas
+
+- **Java**: 21
+- **Maven**: 3.6+
+- **Tomcat**: 10
+- **PostgreSQL**: 12+
+- **Navegador**: Chrome, Firefox, Edge (compatible HTML5)
+
+## Requisitos Previos
+
+- Java JDK 11 o superior instalado
+- PostgreSQL 12 o superior
+- Apache Tomcat 10 instalado en C:\ProgramData\Tomcat
 - Maven 3.6+
+- Navegador web moderno
 
----
+## Estructura del Proyecto
 
-## 🚀 CÓMO EJECUTAR LA APLICACIÓN
-
-### PASO 1: Crear Base de Datos PostgreSQL
-
-Elige una de las dos opciones:
-
-#### Opción A: Script SQL automático (recomendado)
-```powershell
-# Desde PowerShell como administrador
-psql -U postgres -f "C:\Users\James_Red\Desktop\Cursos UTP\2026-I\DesarrolloWebIntegrado\ProyectoProgramacionWeb\proyect\src\main\resources\init.sql"
+```
+src/main/
+  java/
+    config/          - Configuración de base de datos
+    controller/jsf/  - Managed Beans de JSF
+    dao/             - Capa de acceso a datos
+    dto/             - Objetos de transferencia de datos
+    service/         - Lógica de negocio
+  resources/
+    init.sql         - Script de inicialización de BD
+  webapp/
+    views/           - Páginas XHTML de JSF
+    assets/          - CSS, JavaScript, imágenes
+    WEB-INF/         - Configuración web
 ```
 
-#### Opción B: Ejecución manual en pgAdmin o psql
-1. Abre **pgAdmin 4** o **psql CLI**
-2. Copia y ejecuta el contenido de: `src/main/resources/init.sql`
+## Instrucciones de Ejecución
 
-**⚠️ IMPORTANTE - Verificar credenciales de conexión:**
+### Paso 1: Configurar Base de Datos
 
-Si tus credenciales de PostgreSQL son diferentes, edita [DBConfig.java](src/main/java/config/DBConfig.java):
+Edita [src/main/java/config/DBConfig.java](src/main/java/config/DBConfig.java) con tus credenciales:
 
 ```java
 private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/spa_relax";
 private static final String JDBC_USER = "postgres";
-private static final String JDBC_PASSWORD = "postgres";  // CAMBIAR SI ES NECESARIO
+private static final String JDBC_PASSWORD = "tu_contraseña";
 ```
 
----
-
-### PASO 2: Compilar el proyecto con Maven
+Ejecuta el script de inicialización en PostgreSQL:
 
 ```powershell
-# Desde el directorio del proyecto
-cd c:\Users\James_Red\Desktop\Cursos UTP\2026-I\DesarrolloWebIntegrado\ProyectoProgramacionWeb\proyect
+psql -U postgres -f src/main/resources/init.sql
+```
+
+O manualmente desde pgAdmin:
+1. Crea la base de datos
+2. Copia el contenido de src/main/resources/init.sql
+3. Ejecuta el script
+
+### Paso 2: Compilar el Proyecto
+
+Desde la raíz del proyecto:
+
+```powershell
 mvn clean install
 ```
 
-Si la compilación es exitosa, verás:
-```
-[INFO] BUILD SUCCESS
-[INFO] Total time: X.XXs
-```
 
-El archivo WAR se generará en: `target/proyect.war`
+El archivo WAR se generará en: target/proyect.war
 
----
+### Paso 3: Desplegar en Tomcat
 
-### PASO 3: Desplegar en Tomcat 10
+Opción A - Script automático:
 
-#### Opción A: Despliegue automático (recomendado)
-
-1. **Copiar WAR a Tomcat:**
 ```powershell
-copy "target\proyect.war" "C:\ProgramData\Tomcat\webapps\"
+.\deploy.bat
 ```
 
-2. **Reiniciar Tomcat:**
+Opción B - Manual:
+
 ```powershell
+copy target\proyect.war "C:\ProgramData\Tomcat\webapps\"
 cd C:\ProgramData\Tomcat\bin
 .\startup.bat
 ```
 
-#### Opción B: Despliegue manual desde Tomcat Manager
-1. Abre http://localhost:8080/manager/html
-2. Busca "Deploy"
-3. Selecciona `target/proyect.war`
-4. Haz clic en "Deploy"
+### Paso 4: Acceder a la Aplicación
 
----
-
-### PASO 4: Acceder a la aplicación
-
-Abre tu navegador y ve a:
+Abre tu navegador en:
 
 ```
 http://localhost:8080/proyect/
 ```
 
-Se te redirigirá automáticamente a la página de inicio JSF.
+## Páginas Disponibles
 
-**Páginas disponibles:**
-- **Login**: http://localhost:8080/proyect/views/login.xhtml
-- **Registro**: http://localhost:8080/proyect/views/registro.xhtml
-- **Mis Citas**: http://localhost:8080/proyect/views/citas.xhtml
-- **Perfil**: http://localhost:8080/proyect/views/perfil.xhtml
-- **Admin**: http://localhost:8080/proyect/views/admin.xhtml
+- Inicio: http://localhost:8080/proyect/views/index.xhtml
+- Login: http://localhost:8080/proyect/views/login.xhtml
+- Registro: http://localhost:8080/proyect/views/registro.xhtml
+- Mis Citas: http://localhost:8080/proyect/views/citas.xhtml
+- Perfil: http://localhost:8080/proyect/views/perfil.xhtml
+- Panel Administrador: http://localhost:8080/proyect/views/admin.xhtml
 
 ---
 
-## 👥 Usuarios de Prueba (en la BD)
+##  Usuarios de Prueba (en la BD)
 
 | Email | Contraseña | Tipo |
 |-------|-----------|------|
-| juan@email.com | 123456 | Usuario |
-| maria@email.com | password123 | Usuario |
-| carlos@email.com | abc123 | Usuario |
 | admin@spa.com | admin123 | Admin |
 
 **Ejemplo de login:**
 1. Abre http://localhost:8080/proyect/views/login.xhtml
-2. Email: `juan@email.com`
-3. Contraseña: `123456`
+2. Email: `admin@spa.com`
+3. Contraseña: `admin123`
 4. Haz clic en "Entrar"
 
 ---
 
-## 📁 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 src/main/java/
 ├── config/
-│   └── DBConfig.java                  ← Configuración de BD
+│   ├──  DBConfig.java                  ← Configuración de BD
+|   └──  DatabaseInitializer.java       ← Iniciación de la BD  
 ├── controller/
 │   ├── jsf/
 │   │   ├── LoginBean.java            ← JSF Bean para login
@@ -170,7 +175,7 @@ pom.xml                             ← Configuración Maven
 
 ---
 
-## 🔧 Tecnologías y Versiones
+##  Tecnologías y Versiones
 
 | Tecnología | Versión | Propósito |
 |-----------|---------|----------|
@@ -183,7 +188,7 @@ pom.xml                             ← Configuración Maven
 
 ---
 
-## 📋 Requisitos
+##  Requisitos
 
 Antes de ejecutar, asegúrate de tener instalado:
 
@@ -207,39 +212,39 @@ Antes de ejecutar, asegúrate de tener instalado:
 
 ---
 
-## 🎯 Característica Principales Implementadas
+##  Característica Principales Implementadas
 
-### 1. Arquitectura por Capas ✅
+### 1. Arquitectura por Capas 
 - **config**: Configuración de BD
 - **controller**: Beans JSF (antes Servlets)
 - **dao**: Acceso a datos (Database Access Objects)
 - **dto**: Objetos de transferencia de datos
 - **service**: Lógica de negocio
 
-### 2. Componentes JSF ✅
+### 2. Componentes JSF 
 - Beans con anotaciones `@Named` y `@ViewScoped`
 - Formularios con `h:form`, `h:inputText`, `h:commandButton`
 - Validación de entrada
 - Tablas dinámicas con `h:dataTable`
 - Inyección de dependencias con CDI
 
-### 3. Gestión de Sesiones ✅
+### 3. Gestión de Sesiones 
 - Sesiones HTTP con `HttpSession`
 - Control de acceso (login requerido)
 - Logout y destrucción de sesión
 
-### 4. Base de Datos ✅
+### 4. Base de Datos 
 - Conexión a PostgreSQL
 - Tablas: usuarios, servicios, citas
 - Datos de prueba incluidos
 
-### 5. Interfaz Responsive ✅
+### 5. Interfaz Responsive 
 - CSS moderno en `assets/css/styles.css`
 - JavaScript interactivo en `assets/js/script.js`
 
 ---
 
-## ⚠️ Notas Importantes
+##  Notas Importantes
 
 ### Diferencia entre JSP y JSF
 
@@ -264,7 +269,7 @@ Ahora se utilizan **JSF Beans**:
 
 ---
 
-## 🔍 Solución de Problemas
+##  Solución de Problemas
 
 ### Error 1: "404 - Página no encontrada"
 - **Causa**: URL incorrecta
@@ -296,7 +301,7 @@ Ahora se utilizan **JSF Beans**:
 
 ---
 
-## 📞 Contacto y Soporte
+##  Contacto y Soporte
 
 Para más información, revisa:
 - [Documentación JSF](https://eclipse-ee4j.github.io/faces)
@@ -306,7 +311,7 @@ Para más información, revisa:
 ---
 
 **Última actualización**: 26 de mayo de 2026  
-**Estado**: ✅ Listo para producción
+**Estado**:  Listo para producción
 
 ### DBConfig.java
 Ubicación: `src/main/java/config/DBConfig.java`
@@ -327,35 +332,6 @@ JDBC_PASSWORD = "postgres"
 
 ---
 
-##  Flujo de Prueba
-
-### 1. Login
-```
-Acceder a: http://localhost:8080/proyect/login
-Usuario: juan@email.com
-Contraseña: 123456
-→ Redirige a: /citas
-```
-
-### 2. Ver Citas
-```
-http://localhost:8080/proyect/citas
-→ Muestra tabla dinámica con citas del usuario
-```
-
-### 3. Ver Perfil
-```
-http://localhost:8080/proyect/perfil
-→ Muestra nombre, email, teléfono desde BD
-```
-
-### 4. Panel Admin
-```
-http://localhost:8080/proyect/admin
-→ Tabla con todas las citas (solo lectura)
-```
-
----
 
 ##  Notas Importantes
 
@@ -383,9 +359,9 @@ http://localhost:8080/proyect/admin
 
 ##  Requisitos del Sistema
 
-- **Java**: 11+
+- **Java**: 21
 - **Maven**: 3.6+
-- **Tomcat**: 9+ o 10
+- **Tomcat**: 10
 - **PostgreSQL**: 12+
 - **Navegador**: Chrome, Firefox, Edge (compatible HTML5)
 
@@ -411,5 +387,4 @@ Si hay errores:
 4. Compilar nuevamente: `mvn clean install`
 
 ---
-
-**¡Proyecto listo para producción!** 
+ 
