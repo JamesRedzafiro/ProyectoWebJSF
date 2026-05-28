@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Historial - Spa Relax</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Spa Relax</h1>
+        <nav class="nav">
+            <a href="index.html">Inicio</a>
+            <a href="citas.html">Agendar Cita</a>
+            <a href="historial.html" class="active">Mi Historial</a>
+            <div class="user-menu">
+                <span class="user-name">usuario@email.com</span>
+                <a href="perfil.html">Mi Perfil</a>
+                <a href="login.html" class="logout-link">Cerrar Sesión</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="admin-content">
+        <div class="table-container">
+            <h2>Mi Historial de Citas</h2>
+            
+            <div class="filter-section">
+                <div class="filter-group">
+                    <label for="filter-estado">Filtrar por estado:</label>
+                    <select id="filter-estado">
+                        <option value="todas">Todas</option>
+                        <option value="pendiente">Pendientes</option>
+                        <option value="confirmada">Confirmadas</option>
+                        <option value="completada">Completadas</option>
+                        <option value="cancelada">Canceladas</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-fecha">Desde fecha:</label>
+                    <input type="date" id="filter-fecha">
+                </div>
+            </div>
+
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Servicio</th>
+                        <th>Estado</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025-09-10</td>
+                        <td>10:00</td>
+                        <td>Masaje Relajante</td>
+                        <td><span class="status-badge status-confirmada">Confirmada</span></td>
+                        <td>S/. 120.00</td>
+                        <td>
+                            <button class="btn-edit" onclick="editAppointment(1)">Modificar</button>
+                            <button class="btn-delete" onclick="cancelAppointment(1)">Cancelar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2025-09-05</td>
+                        <td>14:30</td>
+                        <td>Reflexología</td>
+                        <td><span class="status-badge status-completada">Completada</span></td>
+                        <td>S/. 100.00</td>
+                        <td>
+                            <button class="btn-review" onclick="addReview(2)">Calificar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2025-08-28</td>
+                        <td>16:00</td>
+                        <td>Masaje Terapéutico</td>
+                        <td><span class="status-badge status-completada">Completada</span></td>
+                        <td>S/. 150.00</td>
+                        <td>
+                            <span class="review-completed">★★★★★ Calificado</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <button class="btn-page" disabled>Anterior</button>
+                <span class="page-info">Página 1 de 1</span>
+                <button class="btn-page" disabled>Siguiente</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spa Relax - Inicio</title>
+    <link rel="stylesheet" href="#{request.contextPath}/assets/css/styles.css"/>
+</head>
+<body>
+<header class="header">
+    <h1>Spa Relax</h1>
+        <nav class="nav">
+            <h:link outcome="/views/index" value="Inicio" styleClass="active"/>
+            <h:link outcome="/views/citas" value="Agendar Cita"/>
+            
+            <a href="#{request.contextPath}/views/contacto.html">Contacto</a>
+            <a href="#{request.contextPath}/views/login_admin.html">Admin</a>
+        </nav>
+</header>
+
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>Renueva tu Bienestar</h1>
+        <p class="hero-subtitle">Descubre la tranquilidad y relajación que mereces en Spa Relax</p>
+        <div class="hero-buttons">
+            <h:link outcome="citas" value="Reservar Ahora" styleClass="btn-hero-primary"/>
+            <a href="#servicios" class="btn-hero-secondary">Ver Servicios</a>
+        </div>
+    </div>
+    <div class="hero-features">
+        <div class="feature-item">
+            <span class="feature-icon">🕘</span>
+            <span class="feature-text">Atención 7 días</span>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">✨</span>
+            <span class="feature-text">Terapeutas Certificados</span>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">🎯</span>
+            <span class="feature-text">Experiencia Personalizada</span>
+        </div>
+    </div>
+</section>
+
+<main class="main-content">
+    <section id="servicios">
+        <h2>Nuestros Servicios de Masajes</h2>
+
+        <div class="cards-container">
+            <div class="card">
+                <h3>Masaje Relajante</h3>
+                <p>Disfruta de un masaje suave que alivia el estrés y la tensión muscular.</p>
+                <p class="price">S/. 120.00</p>
+                <h:link outcome="citas" value="Reservar" styleClass="btn-card"/>
+            </div>
+
+            <div class="card">
+                <h3>Masaje Terapéutico</h3>
+                <p>Tratamiento especializado para dolores musculares y articulares.</p>
+                <p class="price">S/. 150.00</p>
+                <h:link outcome="citas" value="Reservar" styleClass="btn-card"/>
+            </div>
+
+            <div class="card">
+                <h3>Masaje Deportivo</h3>
+                <p>Ideal para atletas y deportistas. Mejora el rendimiento y la recuperación.</p>
+                <p class="price">S/. 180.00</p>
+                <h:link outcome="citas" value="Reservar" styleClass="btn-card"/>
+            </div>
+
+            <div class="card">
+                <h3>Reflexología</h3>
+                <p>Masaje especializado en pies para equilibrar la energía corporal.</p>
+                <p class="price">S/. 100.00</p>
+                <h:link outcome="citas" value="Reservar" styleClass="btn-card"/>
+            </div>
+        </div>
+    </section>
+
+    <section class="promotions-section">
+        <h2>Ofertas Especiales</h2>
+        <div class="promotions-container">
+            <div class="promotion-card featured">
+                <div class="promotion-badge">¡OFERTA!</div>
+                <h3>Paquete Relajación Total</h3>
+                <p class="original-price">S/. 350.00</p>
+                <p class="promo-price">S/. 280.00</p>
+                <ul class="promo-includes">
+                    <li>Masaje Relajante (60 min)</li>
+                    <li>Reflexología (30 min)</li>
+                    <li>Aromaterapia</li>
+                </ul>
+                <h:link outcome="citas" value="Reservar Oferta" styleClass="btn-promo"/>
+            </div>
+
+            <div class="promotion-card">
+                <h3>Descuento Estudiantes</h3>
+                <p class="promo-price">20% OFF</p>
+                <p class="promo-description">Presenta tu carnet universitario y obtén descuento en todos nuestros servicios</p>
+                <h:link outcome="citas" value="Más Info" styleClass="btn-promo"/>
+            </div>
+
+            <div class="promotion-card">
+                <h3>Membresía Mensual</h3>
+                <p class="promo-price">S/. 399/mes</p>
+                <p class="promo-description">4 sesiones de masaje al mes + descuentos especiales</p>
+                <a href="contacto.html" class="btn-promo">Consultar</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <h2>Lo que Dicen Nuestros Clientes</h2>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p class="testimonial-text">"Excelente servicio, el masaje relajante me ayudó mucho con el estrés del trabajo. Definitivamente regresaré."</p>
+                <div class="testimonial-author">
+                    <strong>María González</strong>
+                    <span>Cliente frecuente</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p class="testimonial-text">"Los terapeutas son muy profesionales. El masaje deportivo me ayudó a recuperarme después de mis entrenamientos."</p>
+                <div class="testimonial-author">
+                    <strong>Carlos Rodríguez</strong>
+                    <span>Deportista profesional</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p class="testimonial-text">"El ambiente es muy relajante y el personal muy atento. Una experiencia increíble cada vez que vengo."</p>
+                <div class="testimonial-author">
+                    <strong>Ana Martín</strong>
+                    <span>Cliente VIP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Contáctanos</h3>
+            <p>Av. Arequipa 1234, Lima</p>
+            <p>(01) 123-4567</p>
+            <p>info@sparelax.com</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Horario de Atención</h3>
+            <p>Lunes a Viernes: 9:00 AM - 8:00 PM</p>
+            <p>Sábados: 9:00 AM - 6:00 PM</p>
+            <p>Domingos: 9:00 AM - 2:00 PM</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Enlaces Rápidos</h3>
+            <ul>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><h:link outcome="citas" value="Reservas"/></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&#169; 2025 Spa Relax. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="#" class="social-link">Facebook</a>
+            <a href="#" class="social-link">Instagram</a>
+            <a href="#" class="social-link">WhatsApp</a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

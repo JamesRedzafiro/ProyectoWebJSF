@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Perfil - Spa Relax</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="header">
+    <h1>Spa Relax</h1>
+    <nav class="nav">
+      <h:link outcome="index" value="Inicio"/>
+      <h:link outcome="citas" value="Agendar Cita"/>
+      <h:link outcome="historial" value="Mi Historial"/>
+      <div class="user-menu">
+        <span class="user-name">usuario@email.com</span>
+        <h:link outcome="perfil" value="Mi Perfil" styleClass="active"/>
+        <h:link outcome="login" value="Cerrar Sesión" styleClass="logout-link"/>
+      </div>
+    </nav>
+  </header>
+
+  <div class="dashboard-container">
+    <aside class="user-info-panel">
+      <div class="user-profile">
+        <h3>Información Actual</h3>
+        <div class="profile-details">
+          <p><strong>Nombre:</strong> <span>#{perfilBean.usuario.nombre}</span></p>
+          <p><strong>DNI:</strong> <span>#{perfilBean.usuario.dni}</span></p>
+          <p><strong>Email:</strong> <span>#{perfilBean.usuario.email}</span></p>
+          <p><strong>Teléfono:</strong> <span>#{perfilBean.usuario.telefono}</span></p>
+          <p><strong>Miembro desde:</strong> <span>Enero 2025</span></p>
+        </div>
+      </div>
+    </aside>
+
+    <div class="form-container">
+      <h2>Editar Mi Perfil</h2>
+
+      <h:form id="perfilForm" styleClass="profile-form">
+        <div class="form-group">
+          <h:outputLabel for="nombre" value="Nombre Completo*"/>
+          <h:inputText id="nombre" value="#{perfilBean.usuario.nombre}" required="true"/>
+        </div>
+
+        <div class="form-group">
+          <h:outputLabel for="dni" value="DNI*"/>
+          <h:inputText id="dni" value="#{perfilBean.usuario.dni}" required="true"/>
+        </div>
+
+        <div class="form-group">
+          <h:outputLabel for="email" value="Correo Electrónico*"/>
+          <h:inputText id="email" value="#{perfilBean.usuario.email}" required="true"/>
+        </div>
+
+        <div class="form-group">
+          <h:outputLabel for="telefono" value="Teléfono*"/>
+          <h:inputText id="telefono" value="#{perfilBean.usuario.telefono}" required="true"/>
+        </div>
+
+        <div class="form-group">
+          <h:outputLabel for="passwordActual" value="Contraseña Actual"/>
+          <h:inputSecret id="passwordActual" value="#{perfilBean.passwordActual}"/>
+        </div>
+
+        <div class="form-group">
+          <h:outputLabel for="nuevaPassword" value="Nueva Contraseña"/>
+          <h:inputSecret id="nuevaPassword" value="#{perfilBean.nuevaPassword}"/>
+        </div>
+
+        <div class="form-group">
+          <h:outputLabel for="confirmarPassword" value="Confirmar Nueva Contraseña"/>
+          <h:inputSecret id="confirmarPassword" value="#{perfilBean.confirmarPassword}"/>
+        </div>
+
+        <div class="form-actions">
+          <h:commandButton value="Guardar Cambios" action="#{perfilBean.guardar}" styleClass="btn-submit"/>
+          <h:link outcome="citas" value="Cancelar" styleClass="btn-cancel"/>
+        </div>
+      </h:form>
+
+      <div style="margin-top:10px;">
+        <h:messages globalOnly="true" layout="list"/>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

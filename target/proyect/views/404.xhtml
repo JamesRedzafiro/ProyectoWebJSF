@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+  <meta charset="UTF-8" />
+  <title>Página no encontrada</title>
+  <style>
+    body {font-family: Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin:0; padding:0; height:100vh; display:flex; justify-content:center; align-items:center;}
+    .error-container {text-align:center; background:white; padding:60px 40px; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,0.2); max-width:500px;}
+    h1 {color:#764ba2; font-size:72px; margin:0; line-height:1;}
+    h2 {color:#667eea; margin-top:20px; font-size:24px;}
+    p {color:#666; line-height:1.6; margin:20px 0;}
+  </style>
+</h:head>
+<h:body>
+  <div class="error-container">
+    <h1>404</h1>
+    <h2>Página no encontrada</h2>
+    <p>Lo sentimos, la página que buscas no existe o ha sido movida.</p>
+    <p>Por favor verifica la URL e intenta de nuevo.</p>
+    <h:link outcome="index" value="Volver al inicio" />
+  </div>
+</h:body>
+</html>
+

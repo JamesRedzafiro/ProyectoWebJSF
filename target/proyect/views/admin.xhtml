@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Spa Relax</title>
+  <link rel="stylesheet" href="styles.css"/>
+</h:head>
+<h:body>
+  <header class="header">
+    <h1>Panel de Administración - Spa Relax</h1>
+    <nav class="nav">
+      <h:link outcome="index" value="Volver al Inicio" />
+      <h:link outcome="citas" value="Salir" styleClass="logout" />
+    </nav>
+  </header>
+
+  <main class="admin-content">
+    <div class="table-container">
+      <h2>Gestión de Citas</h2>
+
+      <h:panelGroup rendered="#{empty adminBean.todasLasCitas}">
+        <p>No hay citas registradas.</p>
+      </h:panelGroup>
+
+      <h:dataTable value="#{adminBean.todasLasCitas}" var="cita" rendered="#{not empty adminBean.todasLasCitas}" border="1" cellpadding="6" cellspacing="0" style="width:100%">
+        <h:column>
+          <f:facet name="header">ID</f:facet>
+          #{cita.id}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Usuario</f:facet>
+          #{cita.usuarioNombre}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Servicio</f:facet>
+          #{cita.servicioNombre}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Fecha</f:facet>
+          #{cita.fecha}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Hora</f:facet>
+          #{cita.hora}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Estado</f:facet>
+          #{cita.estado}
+        </h:column>
+      </h:dataTable>
+    </div>
+  </main>
+</h:body>
+</html>
