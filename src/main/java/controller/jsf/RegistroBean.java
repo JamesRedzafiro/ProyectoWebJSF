@@ -9,8 +9,8 @@ import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
 import service.UsuarioService;
 
-@Named
-@RequestScoped
+@Named("registroBean")
+@jakarta.enterprise.context.RequestScoped
 public class RegistroBean implements Serializable {
 
     private String nombre;
