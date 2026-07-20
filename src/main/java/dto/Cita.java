@@ -10,10 +10,10 @@ public class Cita {
     private int servicioId;
     private LocalDate fecha;
     private LocalTime hora;
-    private String estado; // "confirmada", "completada", "cancelada"
+    private String estado; 
     private Timestamp createdAt;
     
-    // Campos adicionales para mostrar datos relacionados
+    
     private String usuarioNombre;
     private String servicioNombre;
     private String servicioDescripcion;

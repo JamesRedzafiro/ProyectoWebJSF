@@ -18,6 +18,11 @@ public class PerfilBean implements Serializable {
 
     private Usuario usuario;
     private final UsuarioService usuarioService = new UsuarioService();
+    
+    // 1. Agregamos las propiedades requeridas por la vista
+    private String passwordActual;
+    private String passwordNueva;
+    private String confirmarPassword;
 
     @PostConstruct
     public void init() {
@@ -53,7 +58,37 @@ public class PerfilBean implements Serializable {
         }
     }
 
+    // 2. Getters y Setters del Usuario
     public Usuario getUsuario() {
         return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    // 3. Getters y Setters para las contraseñas (Requeridos por JSF)
+    public String getPasswordActual() {
+        return passwordActual;
+    }
+
+    public void setPasswordActual(String passwordActual) {
+        this.passwordActual = passwordActual;
+    }
+
+    public String getPasswordNueva() {
+        return passwordNueva;
+    }
+
+    public void setPasswordNueva(String passwordNueva) {
+        this.passwordNueva = passwordNueva;
+    }
+
+    public String getConfirmarPassword() {
+    return confirmarPassword;
+    }
+
+    public void setConfirmarPassword(String confirmarPassword) {
+        this.confirmarPassword = confirmarPassword;
     }
 }

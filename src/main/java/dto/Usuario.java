@@ -6,6 +6,7 @@ public class Usuario {
     private int id;
     private String nombre;
     private String email;
+    private String dni;
     private String password;
     private String telefono;
     private Timestamp fechaRegistro;
@@ -13,10 +14,11 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int id, String nombre, String email, String password, String telefono, Timestamp fechaRegistro) {
+    public Usuario(int id, String nombre, String email, String dni, String password, String telefono, Timestamp fechaRegistro) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
+        this.dni = dni;
         this.password = password;
         this.telefono = telefono;
         this.fechaRegistro = fechaRegistro;
@@ -44,6 +46,14 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getDni(){
+        return dni;
+    }
+    
+    public void setDni(String dni){
+        this.dni = dni;
     }
 
     public String getPassword() {

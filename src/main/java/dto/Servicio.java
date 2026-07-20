@@ -7,7 +7,7 @@ public class Servicio {
     private String nombre;
     private String descripcion;
     private BigDecimal precio;
-    private int duracion; // en minutos
+    private int duracion; 
 
     public Servicio() {
     }
